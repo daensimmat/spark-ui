@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-tool-accent="#3b82f6">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spark UI — Component Preview</title>
+<link rel="stylesheet" href="./spark.css">
+<script src="./spark.js"></script>
+<style>
+  /* preview-only helpers */
+  .preview-section { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .preview-section + .preview-section { padding-top: 0; }
+  .preview-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--spark-text-hint);
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--spark-border);
+  }
+  .preview-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  .swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--spark-border);
+  }
+  .swatch-color {
+    height: 48px;
+  }
+  .swatch-label {
+    padding: 0.5rem 0.75rem;
+    background: var(--spark-surface);
+    font-size: 12px;
+  }
+  .swatch-label strong { display: block; color: var(--spark-text); }
+  .swatch-label span   { color: var(--spark-text-hint); font-family: monospace; }
+</style>
+</head>
+<body>
+
+<!-- Accent bar -->
+<div class="spark-header-accent-bar"></div>
+
+<!-- Header -->
+<header class="spark-header">
+  <span class="spark-header-title">&#9632; Spark UI — Component Preview</span>
+  <div class="spark-flex">
+    <span class="spark-badge spark-badge-accent">spark-reach accent</span>
+    <button class="spark-btn" id="theme-btn" onclick="sparkToggleTheme()">☀ Light mode</button>
+  </div>
+</header>
+
+<!-- ── Colour swatches ─────────────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Colour tokens</div>
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-bg)"></div>
+      <div class="swatch-label"><strong>--spark-bg</strong><span>#1a1a1a / #f5f5f5</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-surface)"></div>
+      <div class="swatch-label"><strong>--spark-surface</strong><span>#242424 / #ffffff</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-card)"></div>
+      <div class="swatch-label"><strong>--spark-card</strong><span>#2e2e2e / #ffffff</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-border); border:none"></div>
+      <div class="swatch-label"><strong>--spark-border</strong><span>#3a3a3a / #e0e0e0</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-success)"></div>
+      <div class="swatch-label"><strong>--spark-success</strong><span>#4ade80 / #16a34a</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-warning)"></div>
+      <div class="swatch-label"><strong>--spark-warning</strong><span>#fbbf24 / #d97706</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-danger)"></div>
+      <div class="swatch-label"><strong>--spark-danger</strong><span>#f87171 / #dc2626</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--spark-info)"></div>
+      <div class="swatch-label"><strong>--spark-info</strong><span>#60a5fa / #2563eb</span></div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:var(--tool-accent)"></div>
+      <div class="swatch-label"><strong>--tool-accent</strong><span>per-tool override</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Badges ─────────────────────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Badges</div>
+  <div class="preview-row">
+    <span class="spark-badge spark-badge-success">success</span>
+    <span class="spark-badge spark-badge-warning">warning</span>
+    <span class="spark-badge spark-badge-danger">danger</span>
+    <span class="spark-badge spark-badge-info">info</span>
+    <span class="spark-badge spark-badge-accent">accent</span>
+  </div>
+</div>
+
+<!-- ── Status pills ──────────────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Status pills</div>
+  <div class="preview-row">
+    <span class="spark-status-up">UP</span>
+    <span class="spark-status-down">DOWN</span>
+    <span class="spark-badge spark-badge-danger" style="font-weight:700">HIGH</span>
+    <span class="spark-badge spark-badge-warning" style="font-weight:700">MEDIUM</span>
+    <span class="spark-badge spark-badge-info" style="font-weight:700">LOW</span>
+    <span class="spark-badge spark-badge-success" style="font-weight:700">ONLINE</span>
+    <span class="spark-badge spark-badge-danger" style="font-weight:700">OFFLINE</span>
+  </div>
+</div>
+
+<!-- ── Buttons ────────────────────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Buttons</div>
+  <div class="preview-row">
+    <button class="spark-btn">Default</button>
+    <button class="spark-btn spark-btn-accent">Accent</button>
+    <button class="spark-btn spark-btn-danger">Danger</button>
+    <button class="spark-btn" disabled>Disabled</button>
+  </div>
+</div>
+
+<!-- ── Cards & Surfaces ──────────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Cards &amp; Surfaces</div>
+  <div class="spark-grid-2">
+    <div class="spark-card">
+      <div style="font-weight:600;margin-bottom:.5rem;">spark-card</div>
+      <div class="spark-muted" style="font-size:14px;">Border-radius 10px, padding 1.25rem. Default card container for content blocks.</div>
+      <div style="margin-top:1rem;" class="spark-flex">
+        <span class="spark-badge spark-badge-success">active</span>
+        <span class="spark-hint">last updated 10s ago</span>
+      </div>
+    </div>
+    <div class="spark-surface">
+      <div style="font-weight:600;margin-bottom:.5rem;">spark-surface</div>
+      <div class="spark-muted" style="font-size:14px;">Border-radius 8px, padding 1rem. Lighter than card — for panels inside cards.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Table ─────────────────────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Table</div>
+  <div class="spark-card" style="padding:0;overflow:hidden;">
+    <table class="spark-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Status</th>
+          <th>Response</th>
+          <th>Last checked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ovrsight</td>
+          <td><span class="spark-status-up">UP</span></td>
+          <td>14ms</td>
+          <td class="spark-hint">12:04:01</td>
+        </tr>
+        <tr>
+          <td>spark-reach</td>
+          <td><span class="spark-status-up">UP</span></td>
+          <td>89ms</td>
+          <td class="spark-hint">12:04:01</td>
+        </tr>
+        <tr>
+          <td>ollama</td>
+          <td><span class="spark-status-down">DOWN</span></td>
+          <td>—</td>
+          <td class="spark-hint">12:04:01</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── Input ─────────────────────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Inputs</div>
+  <div class="spark-card spark-grid-2">
+    <div>
+      <label style="font-size:13px;color:var(--spark-text-muted);display:block;margin-bottom:.4rem;">Text input</label>
+      <input type="text" class="spark-input" placeholder="Enter a value…">
+    </div>
+    <div>
+      <label style="font-size:13px;color:var(--spark-text-muted);display:block;margin-bottom:.4rem;">Select</label>
+      <select class="spark-select" style="width:100%">
+        <option>df -h</option>
+        <option>free -h</option>
+        <option>uptime</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- ── Tool accents reference ────────────────────────────────────────── -->
+<div class="preview-section">
+  <div class="preview-label">Tool accent reference</div>
+  <div class="spark-card">
+    <table class="spark-table">
+      <thead>
+        <tr><th>Tool</th><th>Accent</th><th>Preview</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>spark (dashboard)</td><td class="spark-hint">#e8e8e8</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#e8e8e8;vertical-align:middle;"></span></td></tr>
+        <tr><td>spark-reach</td><td class="spark-hint">#3b82f6</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#3b82f6;vertical-align:middle;"></span></td></tr>
+        <tr><td>spark-security</td><td class="spark-hint">#ef4444</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#ef4444;vertical-align:middle;"></span></td></tr>
+        <tr><td>spark-devices</td><td class="spark-hint">#14b8a6</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#14b8a6;vertical-align:middle;"></span></td></tr>
+        <tr><td>spark-xero-rec</td><td class="spark-hint">#22c55e</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#22c55e;vertical-align:middle;"></span></td></tr>
+        <tr><td>ovrsight</td><td class="spark-hint">#f59e0b</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#f59e0b;vertical-align:middle;"></span></td></tr>
+        <tr><td>pocket-spark</td><td class="spark-hint">#a855f7</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#a855f7;vertical-align:middle;"></span></td></tr>
+        <tr><td>spark-historian</td><td class="spark-hint">#f97316</td><td><span style="display:inline-block;width:20px;height:20px;border-radius:4px;background:#f97316;vertical-align:middle;"></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div style="height:2rem;"></div>
+
+<script>
+  // Update toggle button label when theme changes
+  document.addEventListener('spark-theme-change', function(e) {
+    var btn = document.getElementById('theme-btn');
+    if (btn) btn.textContent = e.detail.theme === 'light' ? '☾ Dark mode' : '☀ Light mode';
+  });
+  // Set initial label after spark.js runs
+  (function() {
+    var btn = document.getElementById('theme-btn');
+    var theme = document.documentElement.getAttribute('data-theme');
+    if (btn) btn.textContent = theme === 'light' ? '☾ Dark mode' : '☀ Light mode';
+  })();
+</script>
+</body>
+</html>

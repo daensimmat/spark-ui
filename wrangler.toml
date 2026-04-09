@@ -1,0 +1,2 @@
+name = "spark-ui"
+pages_build_output_dir = "."
