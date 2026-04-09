@@ -35,6 +35,7 @@ Set tool accent on `<html>`:
 | Tool | Colour |
 |---|---|
 | spark (dashboard) | `#e8e8e8` |
+| sparkast | `#e8e8e8` |
 | spark-reach | `#3b82f6` |
 | spark-security | `#ef4444` |
 | spark-devices | `#14b8a6` |
@@ -42,6 +43,9 @@ Set tool accent on `<html>`:
 | ovrsight | `#f59e0b` |
 | pocket-spark | `#a855f7` |
 | spark-historian | `#f97316` |
+| browser-spark | `#06b6d4` |
+| spark-term | `#6b7280` |
+| spark-test | `#f59e0b` |
 
 ## Theme toggle
 
